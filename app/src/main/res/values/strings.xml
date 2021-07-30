@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MeLembra</string>
+    <string name="novo_lembrete">Novo Lembrete</string>
+    <string name="lembrar_de">Lembrar de?</string>
+    <string name="que_dia">Que dia?</string>
+    <string name="que_horas">Que horas?</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="adicionar_lembrete">Adicionar Lembrete</string>
+    <string name="lembretes">Lembretes</string>
+    <string name="repetir">Repetir?</string>
+    <string name="nenhum_lembrete_adicionado">Nenhum lembrete adicionado.</string>
+</resources>

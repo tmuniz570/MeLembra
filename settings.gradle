@@ -1,0 +1,2 @@
+rootProject.name = "MeLembra"
+include ':app'
