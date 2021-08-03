@@ -2,27 +2,20 @@ package com.tmuniz570.melembra.ui
 
 import android.app.Activity
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
-import com.tmuniz570.melembra.LembreteViewModel
-import com.tmuniz570.melembra.LembreteViewModelFactory
 import com.tmuniz570.melembra.databinding.ActivityAddBinding
 import com.tmuniz570.melembra.datasource.LembreteDS
 import com.tmuniz570.melembra.extensions.format
 import com.tmuniz570.melembra.extensions.text
-import com.tmuniz570.melembra.room.LembreteEntity
+import com.tmuniz570.melembra.model.Lembrete
 import java.util.*
 
 class AddActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityAddBinding
-
-    private val lembreteViewModel by viewModels<LembreteViewModel>{
-        LembreteViewModelFactory(this)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,16 +55,13 @@ class AddActivity : AppCompatActivity() {
         }
 
         binding.btnAdd.setOnClickListener {
-//            val lembrete = LembreteEntity(
-//                0,
-//                lembrete = binding.tilLembrete.text,
-//                data = binding.tilData.text,
-//                hora = binding.tilHora.text,
-//                repetir = binding.cbRepete.isChecked
-//            )
-//            LembreteDS.addList(lembrete)
-
-            lembreteViewModel.addItem(binding.tilLembrete.text, binding.tilData.text, binding.tilHora.text, binding.cbRepete.isChecked)
+            val lembrete = Lembrete(
+                lembrete = binding.tilLembrete.text,
+                data = binding.tilData.text,
+                hora = binding.tilHora.text,
+                repetir = binding.cbRepete.isChecked
+            )
+            LembreteDS.addList(lembrete)
 
             setResult(Activity.RESULT_OK)
             finish()
