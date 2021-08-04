@@ -17,7 +17,7 @@ class DataSourceRoom(val context: Context) : IDataSource {
 
     override fun addItem(lembrete: String, data: String, hora: String, repetir: Boolean) {
         val item = LembreteEntity(0, lembrete,data, hora, repetir)
-//        itemDao.insert(item)
+//        LembreteDao.insert(item)
         InsertAsyncTask(itemDao).execute(item)
     }
 
