@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.tmuniz570.melembra.databinding.ItemLembreteBinding
 import com.tmuniz570.melembra.model.Lembrete
 
-class LembreteAdapter(private val list: List<Lembrete>): RecyclerView.Adapter<LembreteAdapter.LembreteViewHolder>() {
+class LembreteAdapter(private var list: List<Lembrete>): RecyclerView.Adapter<LembreteAdapter.LembreteViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LembreteViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -29,4 +29,8 @@ class LembreteAdapter(private val list: List<Lembrete>): RecyclerView.Adapter<Le
     }
 
     override fun getItemCount(): Int = list.size
+
+    fun setList(update: List<Lembrete>){
+        list = update
+    }
 }

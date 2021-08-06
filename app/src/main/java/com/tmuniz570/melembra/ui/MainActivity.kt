@@ -9,24 +9,25 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.tmuniz570.melembra.R
 import com.tmuniz570.melembra.databinding.ActivityMainBinding
-import com.tmuniz570.melembra.datasource.LembreteDS
 import com.tmuniz570.melembra.model.Lembrete
-import java.text.SimpleDateFormat
-import java.util.*
+import com.tmuniz570.melembra.room.LembreteDao
+import com.tmuniz570.melembra.room.LembreteDatabase
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var dao: LembreteDao
     private lateinit var binding: ActivityMainBinding
-    private val adapter by lazy { LembreteAdapter(LembreteDS.getList()) }
+    private val adapter by lazy { LembreteAdapter(dao.getAll()) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        dao = LembreteDatabase.getInstance(this).lembreteDao()
 
         val recyclerView: RecyclerView = binding.rvLembretes
         recyclerView.adapter = adapter
@@ -45,8 +46,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun listar(){
+        adapter.setList(dao.getAll())
         binding.rvLembretes.adapter = adapter
-        if (LembreteDS.getList().size > 0) {
+        if (dao.getAll().isNotEmpty()) {
             binding.rvLembretes.visibility = View.VISIBLE
             binding.tvNenhumLembrete.visibility = View.GONE
         }else{

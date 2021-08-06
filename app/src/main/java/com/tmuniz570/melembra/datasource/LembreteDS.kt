@@ -1,9 +1,8 @@
 package com.tmuniz570.melembra.datasource
 
 import com.tmuniz570.melembra.model.Lembrete
-import com.tmuniz570.melembra.room.LembreteEntity
 
-object LembreteDS{
+object LembreteDSdasfdsgf{
     private val list = arrayListOf<Lembrete>()
 
     fun getList() = list

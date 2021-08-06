@@ -7,20 +7,24 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import com.tmuniz570.melembra.databinding.ActivityAddBinding
-import com.tmuniz570.melembra.datasource.LembreteDS
 import com.tmuniz570.melembra.extensions.format
 import com.tmuniz570.melembra.extensions.text
 import com.tmuniz570.melembra.model.Lembrete
+import com.tmuniz570.melembra.room.LembreteDao
+import com.tmuniz570.melembra.room.LembreteDatabase
 import java.util.*
 
 class AddActivity : AppCompatActivity() {
 
+    private lateinit var dao: LembreteDao
     private lateinit var binding : ActivityAddBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        dao = LembreteDatabase.getInstance(this).lembreteDao()
 
         listeners()
     }
@@ -56,12 +60,13 @@ class AddActivity : AppCompatActivity() {
 
         binding.btnAdd.setOnClickListener {
             val lembrete = Lembrete(
+                id = 0,
                 lembrete = binding.tilLembrete.text,
                 data = binding.tilData.text,
                 hora = binding.tilHora.text,
                 repetir = binding.cbRepete.isChecked
             )
-            LembreteDS.addList(lembrete)
+            dao.insert(lembrete)
 
             setResult(Activity.RESULT_OK)
             finish()
