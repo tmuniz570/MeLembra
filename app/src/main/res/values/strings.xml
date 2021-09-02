@@ -9,4 +9,6 @@
     <string name="lembretes">Lembretes</string>
     <string name="repetir">Repetir?</string>
     <string name="nenhum_lembrete_adicionado">Nenhum lembrete adicionado.</string>
+    <string name="editar">Editar</string>
+    <string name="deletar">Deletar</string>
 </resources>

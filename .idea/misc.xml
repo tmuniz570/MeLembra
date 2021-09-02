@@ -3,9 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Thiago/AndroidStudioProjects/MeLembra/app/src/main/res/drawable/ic_add_24.xml" value="0.23125" />
+        <entry key="..\:/Users/Thiago/AndroidStudioProjects/MeLembra/app/src/main/res/drawable/ic_baseline_calendar_today_24.xml" value="0.23125" />
+        <entry key="..\:/Users/Thiago/AndroidStudioProjects/MeLembra/app/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.23125" />
+        <entry key="..\:/Users/Thiago/AndroidStudioProjects/MeLembra/app/src/main/res/drawable/ic_baseline_navigate_before_24.xml" value="0.23125" />
+        <entry key="..\:/Users/Thiago/AndroidStudioProjects/MeLembra/app/src/main/res/drawable/ic_baseline_timer_24.xml" value="0.23125" />
+        <entry key="..\:/Users/Thiago/AndroidStudioProjects/MeLembra/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.23125" />
         <entry key="..\:/Users/Thiago/AndroidStudioProjects/MeLembra/app/src/main/res/layout/activity_add.xml" value="0.24375" />
         <entry key="..\:/Users/Thiago/AndroidStudioProjects/MeLembra/app/src/main/res/layout/activity_main.xml" value="0.26902173913043476" />
         <entry key="..\:/Users/Thiago/AndroidStudioProjects/MeLembra/app/src/main/res/layout/item_lembrete.xml" value="0.5" />
+        <entry key="..\:/Users/Thiago/AndroidStudioProjects/MeLembra/app/src/main/res/menu/popup_menu.xml" value="0.19010416666666666" />
       </map>
     </option>
   </component>

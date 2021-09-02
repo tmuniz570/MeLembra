@@ -11,6 +11,5 @@ data class Lembrete(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val lembrete: String,
     val data: String,
-    val hora: String,
-    val repetir: Boolean
+    val hora: String
 ) : Parcelable

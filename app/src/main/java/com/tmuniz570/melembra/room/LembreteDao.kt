@@ -1,21 +1,19 @@
 package com.tmuniz570.melembra.room
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.tmuniz570.melembra.model.Lembrete
 
 @Dao
 interface LembreteDao {
-
     @Query("SELECT * FROM lembrete")
     fun getAll(): List<Lembrete>
 
-    @Insert
-    fun insert(filmesEntity: Lembrete)
+    @Query("SELECT * FROM lembrete WHERE id = :x")
+    fun getLembreteById(x: Int): Lembrete
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun addEdit(lembrete: Lembrete)
 
     @Delete
-    fun delete(filmesEntity: Lembrete)
-
+    fun delete(lembrete: Lembrete)
 }

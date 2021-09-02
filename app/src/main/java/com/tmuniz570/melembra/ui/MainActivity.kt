@@ -39,9 +39,26 @@ class MainActivity : AppCompatActivity() {
         listeners()
     }
 
+    override fun onResume() {
+        super.onResume()
+        listar()
+    }
+
     private fun listeners() {
         binding.fabAdd.setOnClickListener {
-            startActivity(Intent(this, AddActivity::class.java))
+            startActivity(Intent(this, AddEditActivity::class.java))
+        }
+
+        adapter.listenerEditar = {
+            val intent = Intent(this, AddEditActivity::class.java)
+                .putExtra(AddEditActivity.LEMBRETE_ID, it.id)
+
+            startActivity(intent)
+        }
+
+        adapter.listenerDeletar = {
+            dao.delete(it)
+            listar()
         }
     }
 
@@ -55,11 +72,6 @@ class MainActivity : AppCompatActivity() {
             binding.rvLembretes.visibility = View.GONE
             binding.tvNenhumLembrete.visibility = View.VISIBLE
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        listar()
     }
 
     private fun notificar(lembrete: Lembrete){
@@ -86,6 +98,11 @@ class MainActivity : AppCompatActivity() {
         val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         manager.createNotificationChannel(channel)
         manager.notify(lembrete.lembrete.length, builder.build())
+    }
+
+    companion object{
+        private const val CRIAR_NOVO_LEMBRETE = 1
+        private const val EDITAR_LEMBRETE = 2
     }
 
 }

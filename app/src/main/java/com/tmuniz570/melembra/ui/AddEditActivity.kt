@@ -14,7 +14,7 @@ import com.tmuniz570.melembra.room.LembreteDao
 import com.tmuniz570.melembra.room.LembreteDatabase
 import java.util.*
 
-class AddActivity : AppCompatActivity() {
+class AddEditActivity : AppCompatActivity() {
 
     private lateinit var dao: LembreteDao
     private lateinit var binding : ActivityAddBinding
@@ -25,6 +25,17 @@ class AddActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         dao = LembreteDatabase.getInstance(this).lembreteDao()
+
+        if (intent.hasExtra(LEMBRETE_ID)){
+            val lembreteId = intent.getIntExtra(LEMBRETE_ID, 0)
+            dao.getLembreteById(lembreteId).let {
+                binding.toolbar.title = "Editar Lembrete"
+                binding.btnAddedit.text = "Salvar"
+                binding.tilLembrete.text = it.lembrete
+                binding.tilData.text = it.data
+                binding.tilHora.text = it.hora
+            }
+        }
 
         listeners()
     }
@@ -58,18 +69,21 @@ class AddActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.btnAdd.setOnClickListener {
+        binding.btnAddedit.setOnClickListener {
             val lembrete = Lembrete(
-                id = 0,
+                id = intent.getIntExtra(LEMBRETE_ID, 0),
                 lembrete = binding.tilLembrete.text,
                 data = binding.tilData.text,
-                hora = binding.tilHora.text,
-                repetir = binding.cbRepete.isChecked
+                hora = binding.tilHora.text
             )
-            dao.insert(lembrete)
+            dao.addEdit(lembrete)
 
             setResult(Activity.RESULT_OK)
             finish()
         }
+    }
+
+    companion object{
+        const val LEMBRETE_ID = "lembrete_id"
     }
 }

@@ -72,14 +72,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <CheckBox
-        android:id="@+id/cb_repete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/repetir"
-        app:layout_constraintTop_toBottomOf="@id/til_data"
-        app:layout_constraintStart_toStartOf="@id/til_data"/>
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_cancelar"
         android:layout_width="0dp"
@@ -88,12 +80,12 @@
         android:layout_marginBottom="16dp"
         android:text="@string/cancelar"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        app:layout_constraintBottom_toTopOf="@+id/btn_add"
+        app:layout_constraintBottom_toTopOf="@+id/btn_addedit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_add"
+        android:id="@+id/btn_addedit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="32dp"
