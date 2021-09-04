@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Remember me</string>
+    <string name="novo_lembrete">" New Reminder"</string>
+    <string name="lembrar_de">" Remember?"</string>
+    <string name="que_horas">" What time?"</string>
+    <string name="que_dia">" What a day?"</string>
+    <string name="cancelar">" Cancel"</string>
+    <string name="adicionar_lembrete">" Add Reminder"</string>
+    <string name="lembretes">" sticky notes"</string>
+    <string name="nenhum_lembrete_adicionado">No reminders added.</string>
+    <string name="editar">" To edit"</string>
+    <string name="deletar">Delete</string>
+    <string name="salvar">To save</string>
+    <string name="editar_lembrete">" Edit Reminder"</string>
+</resources>

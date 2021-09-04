@@ -7,8 +7,9 @@
     <string name="cancelar">Cancelar</string>
     <string name="adicionar_lembrete">Adicionar Lembrete</string>
     <string name="lembretes">Lembretes</string>
-    <string name="repetir">Repetir?</string>
     <string name="nenhum_lembrete_adicionado">Nenhum lembrete adicionado.</string>
     <string name="editar">Editar</string>
     <string name="deletar">Deletar</string>
+    <string name="salvar">Salvar</string>
+    <string name="editar_lembrete">Editar Lembrete</string>
 </resources>

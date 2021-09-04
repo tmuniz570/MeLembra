@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
+import com.tmuniz570.melembra.R
 import com.tmuniz570.melembra.databinding.ActivityAddBinding
 import com.tmuniz570.melembra.extensions.format
 import com.tmuniz570.melembra.extensions.text
@@ -29,8 +30,8 @@ class AddEditActivity : AppCompatActivity() {
         if (intent.hasExtra(LEMBRETE_ID)){
             val lembreteId = intent.getIntExtra(LEMBRETE_ID, 0)
             dao.getLembreteById(lembreteId).let {
-                binding.toolbar.title = "Editar Lembrete"
-                binding.btnAddedit.text = "Salvar"
+                binding.toolbar.setTitle(R.string.editar_lembrete)
+                binding.btnAddedit.setText(R.string.salvar)
                 binding.tilLembrete.text = it.lembrete
                 binding.tilData.text = it.data
                 binding.tilHora.text = it.hora
